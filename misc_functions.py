@@ -14,6 +14,7 @@ paths = {"bottom_video_links": Path("text_files", "bottom_video_links.txt"),
          "text_files": Path("text_files"),
          "videos_temp": Path("videos_temp")}
 
+
 def folder_file_create():
     """Function creates all neccesary folders and files for the project"""
     folders = [Path("videos_final"), Path("videos_temp"), Path("text_files")]
@@ -43,13 +44,12 @@ def folder_file_create():
             continue
 
 
-
 def start():
     """Function handles intial start flow"""
     print_avc()
     response = pyip.inputMenu(choices=["Single Video", "Multiple Videos",
-                                "Clear Temp Files", "Cancel"],
-                                numbered=True)
+                                       "Clear Temp Files", "Cancel"],
+                              numbered=True)
     clear()
 
     return response
@@ -99,7 +99,8 @@ def file_read(file):
 
 def clean_title(title):
     """Function uses regex to clean YT video titles into usable file names"""
-    temp = re.sub(r"\.[a-zA-Z]{,4}$", "", title)  # remove any file ending ex: ".exe"
+    temp = re.sub(r"\.[a-zA-Z]{,4}$", "",
+                  title)  # remove any file ending ex: ".exe"
     temp = re.sub(r"\s", "_", temp)  # replace white spaces with an underscore
     temp = re.sub(r"\W", "", temp)  # remove any slashes
 

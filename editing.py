@@ -6,6 +6,7 @@ from config_funcs import config_create
 
 #config = config_create(paths["config"])
 
+
 def video_edit(top_vid, bottom_vid):
     """Function edits top and bottom video into one final file"""
     config = config_create(paths["config"])
@@ -21,7 +22,8 @@ def video_edit(top_vid, bottom_vid):
             print(f"Skipped rendering {value} since it already exists!")
             continue
         top_clip = VideoFileClip(f"videos_temp/top/{value}.mp4")
-        bottom_clip = VideoFileClip(f"./videos_temp/bottom/{random.choice(bottom_vid)}.mp4")
+        bottom_clip = VideoFileClip(
+            f"./videos_temp/bottom/{random.choice(bottom_vid)}.mp4")
         bottom_clip_edit = bottom_clip
 
         if config["mute_bottom_video"]:

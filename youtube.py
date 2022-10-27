@@ -7,6 +7,7 @@ from config_funcs import config_create
 
 #config = config_create(paths["config"])
 
+
 def yt_downloader(urls, folder):
     """Functions takes youtube URL and downloads the video"""
     config = config_create(paths["config"])
@@ -36,7 +37,8 @@ def yt_downloader(urls, folder):
             vid_title += "-temp"
 
         print("Downloading video...")
-        vid.download(output_path=Path(paths["videos_temp"], folder), filename=f"{vid_title}.mp4")
+        vid.download(output_path=Path(
+            paths["videos_temp"], folder), filename=f"{vid_title}.mp4")
         vid_downloaded = 1
 
     return (vid_downloaded, vid_title)
